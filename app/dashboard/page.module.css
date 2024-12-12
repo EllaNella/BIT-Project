@@ -1,0 +1,49 @@
+.navbar{
+    display: flex;
+    background-color: aquamarine;
+    color: #000;
+    padding: 20;
+    justify-content: space-between;
+}
+
+.main{
+    background-color: lightgreen;
+    color: #000;
+    padding: 50
+    
+;
+}
+
+.image{
+    display: flex;
+    width: 200;
+    height: 200;
+    background-color: lavender;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    margin-bottom: 20;
+}
+
+.circle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10;
+}
+
+.footer{
+    background-color: darkgreen;
+    color: #fff;
+    padding: 20;
+    text-align: center;
+}
+
+.row{
+    /* background-color: aliceblue; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* flex: 1; */
+}
