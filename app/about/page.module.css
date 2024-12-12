@@ -1,0 +1,19 @@
+.navbar{
+    display: flex;
+    background-color: aquamarine;
+    color: #000;
+    padding: 20;
+    justify-content: space-between;
+}
+
+.body{
+    background-color: #A4BCA6;
+
+}
+
+
+.buttons{
+    background-color: #A7E79F;
+    padding : 12px 5px;
+  
+}
