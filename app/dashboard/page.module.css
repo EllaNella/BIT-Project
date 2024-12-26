@@ -1,3 +1,6 @@
+.main{
+    z-index: 0;
+}
 .navbar{
     display: flex;
     background-color: aquamarine;
@@ -6,6 +9,30 @@
     justify-content: space-between;
 }
 
+.sidebar{
+    position: fixed;
+   right: 0px;
+    top: 0px;
+    bottom: 0px;
+    transition: width 0.35s ease;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    z-index: 1;
+    background-color: #578362;
+    padding: 20;
+    color: #000;
+    width: 200;
+    height: 100vh;
+   
+}
+.sidebarItem{
+    list-style-type: none;
+    li{
+        margin-bottom: 15;
+        font-size: 20;
+    }
+}
 .main{
     background-color: lightgreen;
     color: #000;

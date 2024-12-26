@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import styles from "./page.module.css";
 import { Circle } from "./_components/circle";
+import Sidebar from "./_components/sidebar";
 
 const Dashboard = () => {
   const taglines = [
@@ -17,6 +18,9 @@ const Dashboard = () => {
 
   return (
     <div>
+      {/* Sidebar */}
+      <Sidebar />
+
       {/* nav bar */}
       <div className={styles.navbar}>
         {/* <Image
