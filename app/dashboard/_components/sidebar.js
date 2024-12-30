@@ -2,24 +2,28 @@ import React from "react";
 import Link from "next/link";
 
 import styles from "../page.module.css";
-const Sidebar = () => {
+import CustomButton from "./button";
+const Sidebar = ({ onClick }) => {
   return (
     <div className={styles.sidebar}>
       <ul className={styles.sidebarItem}>
         <li>
+          <CustomButton title={"Close"} onClick={onClick} />
+        </li>
+        <li>
           <Link href="/about">About</Link>
         </li>
         <li>
-          <Link href="/about">Events</Link>
+          <Link href="/events">Events</Link>
         </li>
         <li>
-          <Link href="/about">Fourm</Link>
+          <Link href="/forum">Fourm</Link>
         </li>
         <li>
-          <Link href="/about">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </li>
         <li>
-          <Link href="/about">Register</Link>
+          <Link href="/login">Login</Link>
         </li>
       </ul>
     </div>

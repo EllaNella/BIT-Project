@@ -45,11 +45,10 @@
     display: flex;
     width: 200;
     height: 200;
-    background-color: lavender;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    color: black;
+    object-fit: cover;
     margin-bottom: 20;
 }
 
