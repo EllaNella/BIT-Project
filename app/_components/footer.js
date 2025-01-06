@@ -1,16 +1,23 @@
 import React from "react";
-import Image from "next/image";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"; // Import icons
 import styles from "./components.module.css";
+
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <p>2024 - EcoGo, Inc. All rights reserved.</p>
+      <h2>EcoGo</h2>
+      <p>&copy; 2025 EcoGo. All Rights Reserved.</p>
       <div className={styles.socials}>
-        <Image src={"/icons/FB.png"} width={35} height={20} alt="facebook" />
-        <p>|</p>
-        <Image src={"/icons/IG.png"} width={20} height={20} alt="facebook" />
-        <p>|</p>
-        <Image src={"/icons/X.png"} width={35} height={20} alt="facebook" />
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <FaFacebook size={30} /> {/* Adjust the size */} |
+        </a>
+        
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <FaTwitter size={30} /> |
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <FaInstagram size={30} />
+        </a>
       </div>
     </div>
   );

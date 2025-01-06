@@ -1,53 +1,271 @@
-.sidebar{
-    position: fixed;
-   right: 0px;
-    top: 0px;
-    bottom: 0px;
-    transition: width 0.35s ease;
-    -webkit-transition: width 0.35s ease;
-    -moz-transition: width 0.35s ease;
-    -o-transition: width 0.35s ease;
-    z-index: 1;
-    background-color: #578362;
-    padding: 20;
-    color: #000;
-    width: 200;
-    height: 100vh;
-   
-}
-.sidebarItem{
-    list-style-type: none;
-    li{
-        margin-bottom: 15;
-        font-size: 20;
-    }
-}
 
-.button{
+
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    right: 0; /* Hide sidebar off-screen */
+    top: 0;
+    bottom: 0;
+    transition: right 0.35s ease; /* Animate sidebar sliding in and out */
+    z-index: 101;
+    background-color: #578362; /* Same as navbar */
+    padding: 20px;
+    color: #fff; 
+    width: 250px; /* Width of the sidebar */
+    height: 100vh;
+  }
+  
+
+  .sidebar.open {
+    right: 0; /* When sidebar is open, move it into view */
+  }
+  
+  .sidebar.dark {
+    background-color: #578362; /* Dark theme background */
+    color: #fff; /* Dark theme text color */
+  }
+  
+  /* Sidebar Items */
+  .sidebarItem {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebarItem li {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .sidebarItem li a {
+    color: #fff; /* Default text color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 5px 10px;
+  }
+  
+  .sidebarItem li a:hover {
+    color: #B3DAA9; /* Hover color */
+    border-bottom: 2px solid #B3DAA9; /* Underline on hover */
+    transform: translateX(5px); /* Slight slide effect */
+  }
+  
+  /* Sidebar Close Button */
+  .closeButton {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .button {
     background-color: transparent;
     border: none;
-}
-
-.footer{
-    background-color: darkgreen;
-    color: #fff;
-    padding: 20;
-    text-align: center;
-
-}
-.socials{
-    margin-top: 10;
-    width: 135;
-display: flex;   
-color: #000;
-justify-self: center;
-justify-content: space-between;
-}
-.navbar{
+    color: #578362;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  /* Navbar */
+.navbar {
     display: flex;
-    background-color: aquamarine;
-    color: #000;
-    padding: 10;
     justify-content: space-between;
     align-items: center;
-}
+    background-color: #578362; /* Light theme background */
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  
+  .navItems {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .themeToggle {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .themeToggle:hover {
+    color: #B3DAA9;
+  }
+  
+  /* EcoGo Text (Centered) */
+  .ecoText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .mobileMenu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #578362;
+    color: #fff;
+    width: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mobileMenu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .mobileMenu a:hover {
+    color: #B3DAA9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navItems {
+      display: none;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  }
+  
+  /* For all screen sizes */
+  .hamburger {
+    position: absolute;
+    right: 20px; /* Positioned to the right */
+  }
+  
+  @media (min-width: 769px) {
+    .hamburger {
+      display: none; /* Hide on larger screens */
+    }
+  
+    .navItems {
+      display: flex; /* Show navItems on larger screens */
+    }
+  }
+  
+
+  /* Footer */
+.footer {
+    background-color: #578362; /* Aqua marine background */
+    color: #fff; /* Dark text for contrast */
+    padding: 30px 20px; /* Added padding for better spacing */
+    text-align: center;
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%; /* Ensure it spans the full width */
+    font-size: 16px; /* Slightly larger font size */
+    border-top: 2px solid #4a6f55; /* Add border for separation */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .footer:hover {
+    background-color: #578362; /* Hover background color */
+    color: #fff; /* White text on hover for better contrast */
+  }
+  
+  .footer h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    color: #aeaeae;
+  }
+  
+  .socials a {
+    font-size: 24px;
+    color: #cac5c5;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .socials a:hover {
+    color: #B3DAA9; /* Hover color */
+  }
+  
+  .socials i {
+    font-size: 24px;
+  }
+  
+
+  /* Theme Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #578362;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+  
+  

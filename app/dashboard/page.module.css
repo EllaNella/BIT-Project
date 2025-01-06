@@ -1,38 +1,175 @@
-.main{
+/* Welcome Section */
+.welcome {
     z-index: 0;
-}
-
-.main{
-    background-color: lightgreen;
-    color: #000;
-    padding: 50
-    
-;
-}
-
-.image{
+    position: relative;
+    color: #fff; /* White text for contrast */
+    background-image: url('../../public/images/Header.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the full image fits without cropping */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid repeating the image */
+  
     display: flex;
-    width: 200;
-    height: 200;
-    border-radius: 50%;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+  
+    height: 70vh; /* Define a section height */
+    padding: 3rem;
+    text-align: center;
+  
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay; /* Blend the overlay with the image */
+  
+    /* Fade-in animation */
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .welcome h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better visibility */
+    line-height: 1.2;
+    animation: slideInDown 1.5s ease-in-out;
+  }
+  
+  .welcome p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    max-width: 80%;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    animation: slideInUp 1.5s ease-in-out;
+  }
+  
+  .welcome .cta-btn {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #578362;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .welcome .cta-btn:hover {
+    background-color: #4a6f55;
+    transform: scale(1.1);
+  }
+  
+  /* Circle Section */
+  .image {
+    display: block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20;
-}
-
-.circle{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .circle {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10;
-}
-
-
-.row{
-    /* background-color: aliceblue; */
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  
+  .circle:hover {
+    transform: translateY(-10px);
+  }
+  
+  .circle h4 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .circle:hover h4 {
+    color: #578362;
+  }
+  
+  /* Row Styling */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
     justify-content: center;
     align-items: center;
-    display: flex;
-    /* flex: 1; */
-}
+    padding: 2rem 1rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .welcome h3 {
+      font-size: 2rem;
+    }
+  
+    .welcome p {
+      font-size: 1.2rem;
+    }
+  
+    .welcome {
+      padding: 2rem;
+      height: 50vh;
+    }
+  
+    .image {
+      width: 200px;
+      height: 200px;
+    }
+  
+    .row {
+      gap: 2rem;
+    }
+  }
+  

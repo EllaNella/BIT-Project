@@ -9,9 +9,9 @@ export const Circle = ({ tagline, page }) => {
       <div className={styles.circle}>
         <Image
           className={styles.image}
-          src="/images/Image.jpeg" // Route of the image file
-          height={200} // Desired size with correct aspect ratio
-          width={200}
+          src="/images/Annoucement.jpg" // Route of the image file
+          height={400} // Desired size with correct aspect ratio
+          width={400}
           alt="Your Name"
         />
         <h4>{tagline}</h4>
