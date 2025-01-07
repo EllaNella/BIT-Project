@@ -11,11 +11,11 @@ const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
 
   return (
     <div className={`${styles.navbar} ${isDarkMode ? styles.dark : ""}`}>
-      <Link href="/dashboard">
+      <Link href="/">
         <Image
           src={"/icons/WebsiteLogo.png"}
-          width={50}
-          height={50}
+          width={65}
+          height={65}
           alt="Logo"
           className={styles.logo}
         />
@@ -39,7 +39,7 @@ const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className={styles.mobileMenu}>
-          <Link href="/dashboard">Dashboard</Link>
+          <Link href="/">Dashboard</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </div>

@@ -5,9 +5,9 @@ import { Circle } from "./dashboard/_components/circle";
 
 const Dashboard = () => {
   const taglines = [
-    "Green March 2024",
-    "Climate change effects on earth",
-    "Meet other members",
+    "Take action today",
+    "Share your thoughts",
+    "How it all started",
   ];
 
   const pages = ["/events", "/forum", "/about"];

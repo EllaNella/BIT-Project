@@ -11,7 +11,7 @@
     z-index: 101;
     background-color: #578362; /* Same as navbar */
     padding: 20px;
-    color: #fff; 
+    color: #000; 
     width: 250px; /* Width of the sidebar */
     height: 100vh;
   }
@@ -23,7 +23,7 @@
   
   .sidebar.dark {
     background-color: #578362; /* Dark theme background */
-    color: #fff; /* Dark theme text color */
+    color: #000; /* Dark theme text color */
   }
   
   /* Sidebar Items */
@@ -39,7 +39,7 @@
   }
   
   .sidebarItem li a {
-    color: #fff; /* Default text color */
+    color: #000; /* Default text color */
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -73,7 +73,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #578362; /* Light theme background */
+    background-color: #A4BCA6; /* Light theme background */
     padding: 20px 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -82,12 +82,11 @@
     transition: background-color 0.3s ease;
   }
   
-  
-  
+
   .navItems {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
   }
   
   .themeToggle {
@@ -110,14 +109,14 @@
     transform: translateX(-50%);
     font-size: 26px;
     font-weight: bold;
-    color: #fff;
+    color: #000;
     text-align: center;
   }
   
   /* Hamburger Menu */
   .hamburger {
     display: block;
-    font-size: 30px;
+    font-size: 50px;
     cursor: pointer;
   }
   
@@ -175,14 +174,14 @@
 
   /* Footer */
 .footer {
-    background-color: #578362; /* Aqua marine background */
+    background-color: #A4BCA6; /* Aqua marine background */
     color: #fff; /* Dark text for contrast */
     padding: 30px 20px; /* Added padding for better spacing */
     text-align: center;
     margin-top: auto; /* Push footer to the bottom */
     width: 100%; /* Ensure it spans the full width */
     font-size: 16px; /* Slightly larger font size */
-    border-top: 2px solid #4a6f55; /* Add border for separation */
+    border-top: 2px solid #A4BCA6; /* Add border for separation */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: background-color 0.3s ease; /* Smooth background color transition */
     display: flex;
@@ -203,12 +202,12 @@
   
   .footer p {
     font-size: 14px;
-    color: #aeaeae;
+    color: #000;
   }
   
   .socials a {
     font-size: 24px;
-    color: #cac5c5;
+    color: #000;
     margin: 0 10px;
     transition: color 0.3s ease;
   }

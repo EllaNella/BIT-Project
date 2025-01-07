@@ -5,7 +5,6 @@ import styles from "./components.module.css";
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <h2>EcoGo</h2>
       <p>&copy; 2025 EcoGo. All Rights Reserved.</p>
       <div className={styles.socials}>
         <a href="#" target="_blank" rel="noopener noreferrer">
