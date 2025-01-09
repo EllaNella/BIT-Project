@@ -8,12 +8,77 @@
 
 .body{
     background-color: #A4BCA6;
+    padding: 3rem 12rem;
+    text-align: center;
+    
 
 }
-
+.body p{
+    text-align: justify;
+    width:70%;
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.imgbtn{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 3rem 0rem;
+}
 
 .buttons{
     background-color: #A7E79F;
-    padding : 12px 5px;
-  
+    padding : 12px 10px;
+    height: 3rem;
+    align-items: center;
+    border: 0;
+    margin-top: auto;
+    margin-bottom: -2rem ;
+    border-radius: 5px;
+    cursor: pointer;
 }
+.buttons:hover{
+    background-color: #7b9e76;
+}
+.buttons p:hover{
+   border-bottom: 1px solid white;
+   color: white;
+}
+
+
+.welcome {
+    z-index: 0;
+    position: relative;
+    color: #000; /* White text for contrast */
+    background-image: url('../../public/images/About.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the full image fits without cropping */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid repeating the image */
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    height: 50vh; /* Define a section height */
+    padding: 3rem;
+    text-align: center;
+  
+    background-color: rgba(255, 255, 255, 0.3);
+    background-blend-mode: overlay; /* Blend the overlay with the image */
+  
+    /* Fade-in animation */
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .welcome h3 {
+    font-size: 2rem;
+    
+    margin: 0;
+    
+    line-height: 1.2;
+    animation: slideInDown 1.5s ease-in-out;
+  }
+  
+  

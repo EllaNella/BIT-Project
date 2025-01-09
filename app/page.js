@@ -12,6 +12,12 @@ const Dashboard = () => {
 
   const pages = ["/events", "/forum", "/about"];
 
+  const images = [
+    "/images/Event.jpg", // First image
+    "/images/Announcement.jpg", // Second image
+    "/images/Members.jpg", // Third image
+  ];
+
   return (
     <div className={styles.main}>
       {/* Welcome Section */}
@@ -29,7 +35,12 @@ const Dashboard = () => {
       {/* Circle Section */}
       <div className={styles.row}>
         {taglines.map((tagline, index) => (
-          <Circle key={index} tagline={tagline} page={pages[index]} />
+          <Circle
+            key={index}
+            tagline={tagline}
+            page={pages[index]}
+            image={images[index]} // Pass the image source
+          />
         ))}
       </div>
     </div>

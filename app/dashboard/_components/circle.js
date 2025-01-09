@@ -3,16 +3,16 @@ import Link from "next/link";
 import styles from "../page.module.css";
 import Image from "next/image";
 
-export const Circle = ({ tagline, page }) => {
+export const Circle = ({ tagline, page, image }) => {
   return (
     <Link href={page}>
       <div className={styles.circle}>
         <Image
           className={styles.image}
-          src="/images/Annoucement.jpg" // Route of the image file
+          src={image} // Use the passed image prop
           height={400} // Desired size with correct aspect ratio
           width={400}
-          alt="Your Name"
+          alt={tagline} // Set alt based on tagline
         />
         <h4>{tagline}</h4>
       </div>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./components.module.css";
 
-export default function IconButton({ icon, onClick, width = 30, height = 30 }) {
+export default function IconButton({ icon, onClick, width = 50, height = 50 }) {
   return (
     <button className={styles.button} onClick={onClick}>
       <Image // Hamburger and Close button (Universal CSS)

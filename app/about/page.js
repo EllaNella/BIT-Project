@@ -1,17 +1,20 @@
 import React from "react";
 import styles from "./page.module.css";
-import Footer from "../_components/footer";
+import Image from "next/image";
+import Link from "next/link";
 const About = () => {
   return (
-    <div>
+    <div className={styles.main}>
       {/* header section with image and title */}
-      <div className={styles.header}>
+      <div className={styles.welcome}>
         <h3>GET TO KNOW US</h3>
+     
+       
       </div>
-
       {/* body with description*/}
       <div className={styles.body}>
-        <h5>"Together we move mountains"</h5>
+        <h2>"Together we move mountain"</h2>
+        <br /> 
         <p>
           Our journey began with a shared passion for addressing climate change
           and empowering eco-activists. Recognizing the need for a collaborative
@@ -21,22 +24,28 @@ const About = () => {
         </p>
       </div>
       {/* Body with image */}
-      <div className={styles.image}>
-        <p>Insert image here</p>
-      </div>
+      <div className={styles.imgbtn}>
+      
 
       {/* buttons to other pages */}
-      <button className={styles.buttons}>
-        <p>Meet Our Members</p>
+      <button  className={styles.buttons}>
+        <Link href="/forum"> Meet Our Members</Link>
       </button>
-
+      <div className={styles.image}>
+      <Image
+          className={styles.image}
+          src="/images/Aboutbody.jpg" // Route of the image file
+          height={300} // Desired size with correct aspect ratio
+          width={500}
+          alt="Your Name"
+        />
+      </div>
       <button className={styles.buttons}>
-        <p>Take Action Today</p>
+       <Link href="/events">Take Action Today</Link>
       </button>
+      </div>
 
-      {/* footer */}
-
-      <Footer />
+   
     </div>
   );
 };
