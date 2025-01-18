@@ -1,4 +1,3 @@
-// Navbar Component
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,26 +5,21 @@ import styles from "./components.module.css";
 import IconButton from "./icon.button";
 
 const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY) {
-      setIsVisible(false); // Scrolling down, hide navbar
+    if (currentScrollY === 0) {
+      setIsVisible(true); // Show navbar at the top of the page
     } else {
-      setIsVisible(true); // Scrolling up, show navbar
+      setIsVisible(false); // Hide navbar when scrolling
     }
-    setLastScrollY(currentScrollY);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <div

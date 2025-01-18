@@ -1,0 +1,59 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the content is vertically centered */
+    background-color: #f4f4f4; /* Add a light background color */
+  }
+  
+  .box {
+    max-width: 700px;
+    width: 100%; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual hierarchy */
+    text-align: center; /* Centers text and image inside the box */
+  }
+  
+  .image {
+   height: 250px;
+    background-color: #B3DAA9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tickImage {
+    display: inline-block; /* Ensures proper rendering of the image */
+  }
+  .text{
+    height: 250px;
+    background-color: #A4BCA6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .text h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000; /* Green color to signify success */
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .text p{
+    margin-bottom: 0.2rem;
+  }
+  .btn{
+    padding: 12px 25px;
+    border-radius: 100px;
+    margin-top: 1.5rem;
+    border: 0px;
+    background-color: #B7DBDC;
+    cursor: pointer;
+}
+.btn:hover{
+    padding: 16px 29px;
+    font-size: 1rem;
+}
+  

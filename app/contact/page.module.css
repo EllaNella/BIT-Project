@@ -1,0 +1,174 @@
+
+.welcome {
+    z-index: 0;
+    position: relative;
+    color: #000; /* White text for contrast */
+    background-image: url('../../public/images/Contactheader.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the full image fits without cropping */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid repeating the image */
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    height: 50vh; /* Define a section height */
+    padding: 3rem;
+    text-align: center;
+  
+    background-color: rgba(255, 255, 255, 0.1);
+    background-blend-mode: overlay; /* Blend the overlay with the image */
+  
+    /* Fade-in animation */
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .welcome h3 {
+    font-size: 2rem;
+    
+    margin: 0;
+    
+    line-height: 1.2;
+    animation: slideInDown 1.5s ease-in-out;
+  }
+  .body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+  }
+ .body p{
+  font-weight: bold;
+ }
+ .form{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+ }
+ .Form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+ 
+ }
+ .Form p{
+  font-size: 0.8rem;
+  margin-bottom: -20px;
+ }
+ .row{
+  display: flex;
+  flex-direction: column;
+  
+  gap: 0.2rem;
+ }
+ .rowed{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+ }
+ .labeled{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+ }
+.Form label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  columns: #555;
+}
+.form label.required::after{
+  content: "*";
+  color: red;
+}
+.Form input{
+  width: 100%;
+  padding: 0.8rem;
+  border: 0px;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #D9D9D9;
+}
+.Form textarea{
+  width: 100%;
+  padding: 0.8rem;
+  border: 0px;
+  border-radius: 4px;
+  font-size: 1rem;
+  height: 100px;
+  
+  background-color: #D9D9D9;
+  resize: none;
+}
+.Form input:focus, textarea:focus{
+  outline: none;
+  border: 1px solid #000;
+}
+.submitBtn{
+  width: 100px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #9FCFD1;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+
+}
+.submitBtn:hover{
+  background-color: #329aa1;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  gap: 2rem;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.closeModalBtn {
+  width: 100px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #9FCFD1;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+
+
+ 
+}
+
+.closeModalBtn:hover {
+  background-color: #329aa1;
+}

@@ -13,8 +13,9 @@ const Dashboard = () => {
   const pages = ["/events", "/forum", "/about"];
 
   const images = [
-    "/images/Event.jpg", // First image
+   
     "/images/Announcement.jpg", // Second image
+    "/images/Event.jpg", // First image
     "/images/Members.jpg", // Third image
   ];
 

@@ -1,0 +1,92 @@
+.main{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+
+}
+.inlog{
+    margin-top: 3rem;
+    background-color: #A4BCA6;
+    max-width: 900px;
+    display: flex;
+    height: 500px;
+}
+.leftSide{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image{
+width: 100%;
+height: 100%;
+    object-fit: cover;
+}
+.rightSide{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 80%;
+    max-width: 300px;
+    padding: 20px;
+
+}
+.formInput{
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+}
+.formInput:focus{
+    
+    outline: none;
+}
+.formInput::placeholder{
+    color: black;
+    opacity: 1;
+}
+.logInBTN{
+    width: 100px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #9FCFD1;
+    color: #000;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+  
+  }
+  .logInBTN:hover{
+    background-color: #329aa1;
+  }
+
+  .signUp{
+    font-size: 13px;
+  }
+  .signUp a{
+    color: #065ba1;
+  }
+  .signUp a:hover{
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(45, 147, 225);
+  }
