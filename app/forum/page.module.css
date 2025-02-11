@@ -1,0 +1,288 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+  
+  .leftSide {
+    width: 60%;
+   border: 0px;
+  }
+  
+  .rightSide {
+    width: 30%;
+    text-align: center;
+    padding: 50px ;
+    border-radius: 8px;
+    max-height: 100px;
+  }
+  
+  .userCard {
+    position: relative;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .userBackground {
+    position: relative;
+    width: 100%;
+    height: 100px;
+  }
+  
+  .backgroundImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .userInfo {
+    position: relative;
+    margin-top: -50px; /* Pull user image halfway over background */
+    text-align: center;
+    
+  }
+  
+  .userImage {
+    padding: 0.1rem;
+    border-radius: 50%;
+    border: 1px solid white; /* Add a border to separate image from background */
+    background-color: white;
+    object-fit: cover;
+  }
+  .userInfo img{
+    width: 100px;
+    height: 100px;
+    
+  }
+  
+  .username {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .userRole {
+    margin-top: 5px;
+    font-size: 17px;
+    color: #000;
+    background-color: #B3DAA9;
+    padding: 2px 2px;
+    width: 100px;
+    height: 22px;
+    border-radius: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+  
+  
+  .textEditor {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .postButton {
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .postsContainer {
+    margin-top: 20px;
+  
+    border-radius: 20px;
+    outline: none;
+  }
+  
+  .post {
+    margin-bottom: 20px;
+    padding: 20px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #B3DAA9;
+  }
+  
+  .postHeader {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 1rem;
+  }
+  .userInfo1{
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .postContent{
+    margin-left: 60px;
+  }
+  
+  .postActions,
+  .commentActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .postActions button, .commentActions button{
+    text-decoration: none;
+    border: 0px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .commentsSection {
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  .commentInput{
+    background-color: #d9d9d994;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    outline: none;
+    padding: 10px;
+  }
+  .commentText{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .commentInput::placeholder{
+    color: black;
+  }
+  
+  .comment {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .commentContent {
+    margin-left: 10px;
+    padding: 5px 50px;
+  }
+  .commentSubmit{
+    background-color: rgba(16, 202, 16, 0.437);
+    padding: 8px 10px;
+    border-radius: 100px;
+    border: 0px;
+    outline: none;
+    width: 70px;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  
+  .loggedInUserImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .commentContent .date{
+    font-size: small;
+    color: #262424;
+  }
+  .commentContent p{
+    margin-top: 5px;
+  }
+  
+
+
+  .writePost {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .tabs {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 16px;
+  }
+  
+  .activeTab {
+    font-weight: bold;
+  }
+  
+  .contentArea {
+    padding: 10px;
+  }
+  
+  .textArea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    background-color: #fbf9f9;
+    border: 0px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .preview {
+    white-space: pre-wrap;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    min-height: 100px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .cancelButton {
+    padding: 8px 16px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 100px;
+    width: 80px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .postButton {
+    padding: 8px 16px;
+    background-color: #B7DBDC;
+    color: black;
+    border: none;
+    border-radius: 100px;
+    width: 80px;
+    cursor: pointer;
+  }
+  
