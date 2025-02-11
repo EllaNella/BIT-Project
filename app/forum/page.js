@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { GoPersonFill } from "react-icons/go";
 import { BiCommentDetail } from "react-icons/bi";
 import { FaThumbsUp, FaRegThumbsUp, FaThumbsDown, FaRegThumbsDown } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 
 
@@ -41,6 +42,7 @@ const handlePostChange = (e) => {
   const [currentUser, setCurrentUser] = useState({
     username: "LoggedUser",
     userImage: "/images/Userheader.jpg",
+    isAdmin: true
   });
 
   const handlePostSubmit = () => {
@@ -137,6 +139,19 @@ const handlePostChange = (e) => {
     setPosts(updatedPosts);
   };
 
+  const handleDeletePost = (index) => {
+    const updatedPosts = posts.filter((_, i) => i !== index);
+    setPosts(updatedPosts);
+  };
+
+  const handleDeleteComment = (postIndex, commentIndex) => {
+    const updatedPosts = [...posts];
+    updatedPosts[postIndex].comments = updatedPosts[postIndex].comments.filter(
+      (_, i) => i !== commentIndex
+    );
+    setPosts(updatedPosts);
+  };
+
   return (
     <div className={styles.main}>
       {/* Left Side: Posts and Editor */}
@@ -208,6 +223,11 @@ const handlePostChange = (e) => {
                 <button onClick={() => handleLikePost(postIndex)}>{post.liked ? <FaThumbsUp color="black" size={20} /> : <FaRegThumbsUp size={20} />} {post.likes}</button>
                 <button onClick={() => handleDislikePost(postIndex)}> {post.disliked ? <FaThumbsDown color="black" size={20} /> : <FaRegThumbsDown size={20} />} {post.dislikes}</button>
                 <button style={{marginLeft:'auto'}} onClick={() => handleToggleComments(postIndex)}><BiCommentDetail size={25} /> </button>
+                {currentUser.isAdmin && (
+                  <button onClick={() => handleDeletePost(postIndex)}>
+                    <RiDeleteBin6Line size={20} color="red" />
+                  </button>
+                )}
               </div>
 
               {/* Comments Section */}
@@ -238,6 +258,11 @@ const handlePostChange = (e) => {
                           <button onClick={() => handleDislikeComment(postIndex, commentIndex)}>
                           {comment.disliked ? <FaThumbsDown color="black" size={20} /> : <FaRegThumbsDown size={20} />} {comment.dislikes}
                           </button>
+                          {currentUser.isAdmin && (
+                            <button onClick={() => handleDeleteComment(postIndex, commentIndex)}>
+                              <RiDeleteBin6Line size={20} color="red" />
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
