@@ -4,7 +4,8 @@ import styles from "./page.module.css";
 import { GoPersonFill } from "react-icons/go";
 import { BiCommentDetail } from "react-icons/bi";
 import { FaThumbsUp, FaRegThumbsUp, FaThumbsDown, FaRegThumbsDown } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { RiDeleteBack2Fill } from "react-icons/ri";
+
 
 
 
@@ -225,7 +226,7 @@ const handlePostChange = (e) => {
                 <button style={{marginLeft:'auto'}} onClick={() => handleToggleComments(postIndex)}><BiCommentDetail size={25} /> </button>
                 {currentUser.isAdmin && (
                   <button onClick={() => handleDeletePost(postIndex)}>
-                    <RiDeleteBin6Line size={20} color="red" />
+                    <RiDeleteBack2Fill size={23} color="red" />
                   </button>
                 )}
               </div>
@@ -260,7 +261,7 @@ const handlePostChange = (e) => {
                           </button>
                           {currentUser.isAdmin && (
                             <button onClick={() => handleDeleteComment(postIndex, commentIndex)}>
-                              <RiDeleteBin6Line size={20} color="red" />
+                              <RiDeleteBack2Fill size={22} color="red" />
                             </button>
                           )}
                         </div>

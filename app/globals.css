@@ -11,8 +11,8 @@ html[data-theme='light'] {
 }
 
 html[data-theme='dark'] {
-  --background: var(--background-dark);
-  --foreground: var(--foreground-dark);
+  --background: var(--background-light);
+  --foreground: var(--foreground-light);
 }
 
 html,

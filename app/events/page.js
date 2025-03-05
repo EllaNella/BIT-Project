@@ -8,14 +8,12 @@ const Events = () => {
       id: 1,
       title: "📢 Monthly Eco-Challenge",
       subtitle: "January",
-      description: "**Reduce** your plastic usage by 50% this month! Track your progress and share your tips with the community.",
+      description:  `Join our 'Cut Your Carbon' challenge and share your simple steps to reduce your carbon footprint—bike to work, go plastic-free, or plant a tree!\n\nHow to Join:\nPost your experience in the 'Eco-Challenges' forum.\n\nTop Contributor Prize:\nThe most creative post gets featured and wins a free sustainable living guide!\n\nLet's make an impact together! 💚`,
       
     },
     {
       id: 2,
-      title: "New Recycling Guidelines",
-      subtitle: "Important Update",
-      description: "Updated recycling guidelines for our community. Please check the new sorting requirements.",
+     image:"/images/Announcementbody.jpg",
     },
     {
       id: 3,
@@ -165,6 +163,7 @@ const Events = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 
