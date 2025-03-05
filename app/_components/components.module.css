@@ -1,6 +1,3 @@
-
-
-
 /* Sidebar */
 .sidebar {
     position: fixed;
@@ -14,6 +11,8 @@
     color: #000; 
     width: 180px; /* Width of the sidebar */
     height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   
 
@@ -38,8 +37,25 @@
 
     
   }
+  .belowButton ul{
+    list-style-type: none;
+    
+  }
+  .belowButton {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-top: auto;
+    height: auto;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .belowButton li{
+    font-size: 24px;
+  }
+
   
-  .sidebarItem li a {
+  .sidebarItem li a, .belowButton li a {
     color: #000; /* Default text color */
     text-decoration: none;
     transition: all 0.3s ease;
@@ -48,7 +64,7 @@
     margin-bottom: 2.0rem;
   }
   
-  .sidebarItem li a:hover {
+  .sidebarItem li a:hover, .belowButton li a:hover {
     color: #B3DAA9; /* Hover color */
     border-bottom: 2px solid #B3DAA9; /* Underline on hover */
     transform: translateX(5px); /* Slight slide effect */
@@ -266,5 +282,53 @@
   input:checked + .slider:before {
     transform: translateX(24px);
   }
+  
+.loginItem {
+  transition: all 0.3s ease;
+  margin-left: 25%;
+  
+}
+
+
+.loginItem:hover {
+  transform: translateY(-2px);
+  margin-left: 0;
+}
+
+.loginLink {
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 100px;
+  background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+  box-shadow: 3px 3px 6px #d1d1d1,
+             -3px -3px 6px #ffffff;
+  transition: all 0.3s ease;
+
+}
+
+.loginLink:hover {
+  background: linear-gradient(145deg, #e6e6e6, #f0f0f0);
+  box-shadow: 4px 4px 8px #d1d1d1,
+             -4px -4px 8px #ffffff;
+  padding-left: 60%;
+}
+
+.loginIcon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.loginLink:hover .loginIcon {
+  transform: rotate(10deg);
+}
+
+.loginText {
+  font-size: 0.9rem;
+  color: #333;
+}
   
   
