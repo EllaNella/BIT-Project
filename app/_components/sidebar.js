@@ -27,10 +27,24 @@ const Sidebar = ({ isOpen, onClick }) => {
         <li>
           <Link href="/contact">Contact</Link>
         </li>
-        <li>
-          <Link href="/login">Login</Link>
-        </li>
       </ul>
+      <div className={styles.belowButton}>
+        <ul>
+          <li>
+            <Link href="/moderator">Moderator</Link>
+          </li>
+          <li className={styles.loginItem}>
+            <Link href="/login" className={styles.loginLink}>
+              <img 
+                src="/images/loginicon.png" 
+                alt="Login" 
+                className={styles.loginIcon}
+              />
+              {/* <span className={styles.loginText}>Login / Register</span> */}
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 :root {
   --background-light: #ffffff;
   --foreground-light: #171717;
-  --background-dark: #171717;
-  --foreground-dark: #ededed;
+  --background-dark: #ffffff;
+  --foreground-dark: #171717;
 }
 
 html[data-theme='light'] {

@@ -1,0 +1,150 @@
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 5rem auto;
+}
+
+.heading {
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.editorContainer {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.tabButton {
+  padding: 0.75rem 2rem;
+  background-color: #D9D9D9;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabButton.active {
+  background-color: #9FCFD1;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tabButton:hover {
+  background-color: #ddd;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus {
+  border-color: #0070f3;
+  outline: none;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #9FCFD1;
+  color: black;
+  border: none;
+  width: 100px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+}
+
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #D9D9D9;
+  color: black;
+  width: 100px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cancelButton:hover {
+  background-color: #d32f2f;
+}
+
+.bannerButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #2195f345;
+  color: black;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 1rem;
+  
+  transition: background-color 0.3s ease;
+}
+
+.bannerButton:hover {
+  background-color: #1976d2;
+}
+
+.uploadIcon {
+  font-size: 1.2rem;
+}
+
+.bannerPreview {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.previewImage {
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
