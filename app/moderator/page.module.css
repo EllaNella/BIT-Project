@@ -38,15 +38,18 @@
 }
 
 .tabButton.active {
-  background-color: #9FCFD1;
+  
   color: #333;
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.tabButton:hover {
-  background-color: #ddd;
+.tab1.active{
+  background-color: #9FCFD1;
 }
+.tab2.active{
+  background-color: #A4E19D;
+}
+
 
 .formGroup {
   margin-bottom: 1.5rem;
@@ -119,7 +122,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: #2195f345;
+  background-color: #A4E19D;
   color: black;
   border: none;
   border-radius: 100px;

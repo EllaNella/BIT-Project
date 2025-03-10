@@ -25,6 +25,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+  position: relative;
 }
 
 .announcementBox:hover {
@@ -51,13 +52,19 @@
   font-weight: normal;
 }
 
+.announcementDescriptionContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #EAFCFD;
+}
+
 .announcementDescription {
   line-height: 1.6;
   color: #333;
   background-color: #EAFCFD;
   padding: 1rem;
   border-radius: 0 0 8px 8px;
-  margin-top: 0;
   text-align: center;
 }
 
@@ -78,8 +85,10 @@
 
 .imageContainer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: #EAFCFD;
-  padding: 20px;
+
 }
 
 .announcementImage {
@@ -87,6 +96,7 @@
   height: auto;
   object-fit: cover;
   border-radius: 4px;
+  padding: 20px;
 }
 
 .eventsContainer {
@@ -101,7 +111,12 @@
   max-width: calc(33.33% - 14px);
   background: white;
   padding: 0;
+  transition: transform 0.2s ease;
 }
+.eventBox:hover {
+  transform: translateY(-20px);
+}
+
 
 .eventImage {
   width: 100%;
@@ -122,4 +137,43 @@
 
 .eventEmail {
   color: #FF0000;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: red;
+  display: none; /* Hide the button by default */
+}
+
+.announcementBox:hover .deleteButton,
+.eventBox:hover .deleteButton {
+  display: block; /* Show the button on hover */
+}
+
+.announcementDescriptionContainer {
+  position: relative;
+  padding: 10px;
+}
+
+.announcementDescription {
+  margin-top: 20px;
+}
+
+.deleteButtonannouncement {
+ 
+ 
+
+  font-size: 1.2rem;
+  color: red;
+
+}
+.eventHeader{
+  display: flex;
+  justify-content: space-between;
 }

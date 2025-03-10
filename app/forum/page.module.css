@@ -47,13 +47,7 @@
     
   }
   
-  .userImage {
-    padding: 0.1rem;
-    border-radius: 50%;
-    border: 1px solid white; /* Add a border to separate image from background */
-    background-color: white;
-    object-fit: cover;
-  }
+ 
   .userInfo img{
     width: 100px;
     height: 100px;
@@ -177,6 +171,7 @@
   .comment {
     display: flex;
     margin-bottom: 10px;
+    flex-direction: column;
   }
   
   .commentContent {
@@ -286,3 +281,35 @@
     cursor: pointer;
   }
   
+  .deCmt{
+    background-color: transparent;
+   border: 0px;
+   margin-left: auto;
+   margin-top: 10px;
+  }
+
+  .userIcon {
+    color: #333;
+    
+    padding: 0.3rem;
+    border-radius: 50%;
+    border: 1px solid white; /* Add a border to separate image from background */
+    background-color: white;
+    object-fit: cover;
+    position: absolute;
+    top: -210%; /* Adjust this value to control how much the icon overlaps */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Other existing styles... */
+  .userInfo {
+    position: relative;
+    margin-top: 0; /* Adjust this value to control the spacing below the icon */
+    text-align: center;
+  }
+  .userInfo h3{
+    margin-top: 60px;
+    font-size: 20px;
+    font-weight: bold;
+  }

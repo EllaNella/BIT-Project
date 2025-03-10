@@ -31,7 +31,7 @@ const Sidebar = ({ isOpen, onClick }) => {
       <div className={styles.belowButton}>
         <ul>
           <li>
-            <Link href="/moderator">Moderator</Link>
+            <Link href="/moderator"  className={styles.mod}>Moderator</Link>
           </li>
           <li className={styles.loginItem}>
             <Link href="/login" className={styles.loginLink}>
@@ -39,7 +39,7 @@ const Sidebar = ({ isOpen, onClick }) => {
                 src="/images/loginicon.png" 
                 alt="Login" 
                 className={styles.loginIcon}
-              />
+                />
               {/* <span className={styles.loginText}>Login / Register</span> */}
             </Link>
           </li>

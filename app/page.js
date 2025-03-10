@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   const images = [
    
-    "/images/Announcement.jpg", // Second image
+    "/images/Takeaction.png", // Second image
     "/images/Event.jpg", // First image
     "/images/Members.jpg", // Third image
   ];

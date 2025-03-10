@@ -65,12 +65,13 @@
   /* Circle Section */
   .image {
     display: block;
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+ 
   
   .image:hover {
     transform: scale(1.1);
@@ -85,8 +86,7 @@
   text-align: center;
   transition: transform 0.3s ease;
   cursor: pointer;
-  margin-top: 3rem; /* Added vertical margin for even spacing */
-  margin-bottom: 3rem; /* Added vertical margin for even spacing */
+  justify-content: space-between;
   gap: 2rem;
 }
   
@@ -112,7 +112,11 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 5rem;
   animation: fadeIn 2s ease-in-out;
 }
 
@@ -174,4 +178,19 @@
       gap: 2rem;
     }
   }
+ 
+  @media (max-width: 1024px) {
+    .image {
+      width: 200px;
+      height: 200px;
+    }
+   
+  }
+
+  @media (max-width: 768px) {
+    .image {  
+    width: 200px;
+    height: 200px;
+  }
+}
   

@@ -10,8 +10,9 @@ export const Circle = ({ tagline, page, image }) => {
         <Image
           className={styles.image}
           src={image} // Use the passed image prop
-          height={400} // Desired size with correct aspect ratio
-          width={400}
+          height={600} // Set height to 0 to maintain aspect ratio
+          width={600} // Set width to 0 to maintain aspect ratio
+          
           alt={tagline} // Set alt based on tagline
         />
         <h4>{tagline}</h4>

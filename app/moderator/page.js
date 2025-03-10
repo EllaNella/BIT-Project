@@ -108,14 +108,14 @@ export default function Moderator() {
         <h2>Create Announcement</h2>
         <div className={styles.tabs}>
           <button
-            className={`${styles.tabButton} ${activeTab === 'text' ? styles.active : ''}`}
-            onClick={() => handleTabChange('text')}
+            className={`${styles.tabButton} ${styles.tab1} ${activeTab === 'text' ? styles.active : ''}`}
+            onClick={() => handleTabChange('text')} 
           >
             <span>Text Post</span>
           </button>
           <button
-            className={`${styles.tabButton} ${activeTab === 'image' ? styles.active : ''}`}
-            onClick={() => handleTabChange('image')}
+            className={`${styles.tabButton} ${styles.tab2} ${activeTab === 'image' ? styles.active : ''}`}
+            onClick={() => handleTabChange('image')} 
           >
             <span>Image Post</span>
           </button>
@@ -173,6 +173,7 @@ export default function Moderator() {
           <button
             className={styles.submitButton}
             onClick={handlePostAnnouncement}
+            style={{ backgroundColor: activeTab === 'text' ? '#9FCFD1' : '#A4E19D' }}
           >
             Post
           </button>
@@ -187,7 +188,7 @@ export default function Moderator() {
 
       {/* Event Section */}
       <div className={styles.editorContainer}>
-        <h2>Create Event</h2>
+        <h2 style={{marginBottom:'2rem'}}> Create Event</h2>
         <Editor
           apiKey='96hykvaanlvp39mt8lkh8ipk5zm8wsvh3uv6cakicfaeiwxl'
           init={{

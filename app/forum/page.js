@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./page.module.css";
-import { GoPersonFill } from "react-icons/go";
+import { FaUser } from "react-icons/fa6";
 import { BiCommentDetail } from "react-icons/bi";
 import { FaThumbsUp, FaRegThumbsUp, FaThumbsDown, FaRegThumbsDown } from "react-icons/fa";
 import { RiDeleteBack2Fill } from "react-icons/ri";
@@ -247,9 +247,16 @@ const handlePostChange = (e) => {
                   {/* Existing Comments */}
                   {post.comments.map((comment, commentIndex) => (
                     <div key={commentIndex} className={styles.comment}>
-                   
+                   {currentUser.isAdmin && (
+                            <button className={styles.deCmt} onClick={() => handleDeleteComment(postIndex, commentIndex)}>
+                              <RiDeleteBack2Fill size={22} color="red" />
+                            </button>
+                          )}
                       <div className={styles.commentContent}>
+                        <div className={styles.commentHeader}>
                         <h4>{comment.username}</h4>
+                        
+                          </div>
                         <p className={styles.date}>{post.postDate}</p>
                         <p>{comment.content}</p>
                         <div className={styles.commentActions}>
@@ -259,11 +266,7 @@ const handlePostChange = (e) => {
                           <button onClick={() => handleDislikeComment(postIndex, commentIndex)}>
                           {comment.disliked ? <FaThumbsDown color="black" size={20} /> : <FaRegThumbsDown size={20} />} {comment.dislikes}
                           </button>
-                          {currentUser.isAdmin && (
-                            <button onClick={() => handleDeleteComment(postIndex, commentIndex)}>
-                              <RiDeleteBack2Fill size={22} color="red" />
-                            </button>
-                          )}
+                        
                         </div>
                       </div>
                     </div>
@@ -275,20 +278,23 @@ const handlePostChange = (e) => {
         </div>
       </div>
 
-      {/* Right Side: Logged-in User */}
-      <div className={styles.rightSide}>
-  <div className={styles.userCard}>
-    <div className={styles.userBackground}>
-      <img src="/images/Userheader.jpg" alt="Background" className={styles.backgroundImage} />
-    </div>
-    <div className={styles.userInfo}>
-      <img src="/images/user.png" alt={currentUser.username} className={styles.userImage} />
-      <h3 className={styles.username}>Welcome Back, User</h3>
-      <p className={styles.userRole}>Founder</p>
-    </div>
-  </div>
-</div>
-
+       {/* Right Side: Logged-in User */}
+       <div className={styles.rightSide}>
+        <div className={styles.userCard}>
+          <div className={styles.userBackground}>
+            <img
+              src="/images/Userheader.jpg"
+              alt="Background"
+              className={styles.backgroundImage}
+            />
+          </div>
+          <div className={styles.userInfo}>
+            <FaUser size={100} className={styles.userIcon} />
+            <h3 className={styles.username}>Welcome Back, User</h3>
+            <p className={styles.userRole}>Founder</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

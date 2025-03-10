@@ -13,7 +13,7 @@ const About = () => {
       </div>
       {/* body with description*/}
       <div className={styles.body}>
-        <h2>"Together we move mountain"</h2>
+        <h1>"Together we move mountains"</h1>
         <br /> 
         <p>
           Our journey began with a shared passion for addressing climate change

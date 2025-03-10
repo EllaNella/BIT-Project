@@ -52,7 +52,9 @@
   }
   .belowButton li{
     font-size: 24px;
+    
   }
+
 
   
   .sidebarItem li a, .belowButton li a {
@@ -330,5 +332,12 @@
   font-size: 0.9rem;
   color: #333;
 }
+.mod{
+  font-size: 20px;
   
-  
+}
+.belowButton li a{
+  color:rgb(8, 86, 117)
+}
+
+
