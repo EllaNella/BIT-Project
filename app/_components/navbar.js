@@ -41,7 +41,7 @@ const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
         <IconButton icon="/icons/NavButton.png" onClick={onClick} />
       </div>
 
-      <p className={styles.ecoText}>EcoGo</p>
+      <p className={styles.ecoText}>EcoGos</p>
     </div>
   );
 };
