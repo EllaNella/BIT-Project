@@ -30,8 +30,8 @@ const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
       <Link href="/">
         <Image
           src={"/icons/WebsiteLogo.png"}
-          width={50}
-          height={50}
+          width={70}
+          height={70}
           alt="Logo"
           className={styles.logo}
         />
