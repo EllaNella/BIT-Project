@@ -101,17 +101,28 @@
 
 .eventsContainer {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 6rem;
   margin: 2rem 6rem;
+  /* width: 80%; */
 }
 
 .eventBox {
-  flex: 1;
-  max-width: calc(33.33% - 14px);
+  flex: 0 0 400px; /* Fixed width for event boxes */
+  max-width: 400px; /* Ensure the width doesn't exceed 300px */
+  /* width: 1000px; */
   background: white;
   padding: 0;
   transition: transform 0.2s ease;
+}
+@media  (max-width: 1300px) {
+  
+  .eventBox {
+    flex: 0 0 350px; /* Fixed width for event boxes */
+  max-width:  350px; /* Ensure the width doesn't exceed 300px */
+  }
+  
 }
 .eventBox:hover {
   transform: translateY(-20px);

@@ -28,7 +28,7 @@ const Dashboard = () => {
           Together, we can make a difference. Join the movement to combat
           climate change and create a sustainable future for everyone.
         </p>
-        <a href="/get-started" className={styles["cta-btn"]}>
+        <a href="/login" className={styles["cta-btn"]}>
           Get Started
         </a>
       </div>
