@@ -34,7 +34,7 @@
 
 .announcementHeader {
   margin-bottom: 0;
-  background-color: #85C375;
+  background-color: #85c375;
   padding: 1rem;
   border-radius: 8px 8px 0 0;
   text-align: center;
@@ -56,13 +56,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #EAFCFD;
+  background-color: #eafcfd;
 }
 
 .announcementDescription {
   line-height: 1.6;
   color: #333;
-  background-color: #EAFCFD;
+  background-color: #eafcfd;
   padding: 1rem;
   border-radius: 0 0 8px 8px;
   text-align: center;
@@ -87,8 +87,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #EAFCFD;
-
+  background-color: #eafcfd;
 }
 
 .announcementImage {
@@ -102,32 +101,45 @@
 .eventsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 6rem;
-  margin: 2rem 6rem;
+  justify-content: space-between;
+
+  margin: 2rem 1rem;
   /* width: 80%; */
 }
+@media (min-width: 1300px) {
+  .eventsContainer {
+    justify-content: center;
+    gap: 4rem;
+    margin: 2rem 5rem;
+    /* width: 80%; */
+  }
+}
+@media (max-width: 1100px) {
+  .eventsContainer {
+    
+    gap: 4rem;
+ 
+  }
+}
+
 
 .eventBox {
-  flex: 0 0 400px; /* Fixed width for event boxes */
-  max-width: 400px; /* Ensure the width doesn't exceed 300px */
+  flex: 0 0 400px;
+  max-width: 400px;
   /* width: 1000px; */
   background: white;
   padding: 0;
   transition: transform 0.2s ease;
 }
-@media  (max-width: 1300px) {
-  
+@media (max-width: 1300px) {
   .eventBox {
     flex: 0 0 350px; /* Fixed width for event boxes */
-  max-width:  350px; /* Ensure the width doesn't exceed 300px */
+    max-width: 350px; /* Ensure the width doesn't exceed 300px */
   }
-  
 }
 .eventBox:hover {
   transform: translateY(-20px);
 }
-
 
 .eventImage {
   width: 100%;
@@ -142,12 +154,12 @@
 }
 
 .eventDate {
-  color: #FF0000;
+  color: #ff0000;
   font-weight: 500;
 }
 
 .eventEmail {
-  color: #FF0000;
+  color: #ff0000;
 }
 
 .deleteButton {
@@ -177,14 +189,10 @@
 }
 
 .deleteButtonannouncement {
- 
- 
-
   font-size: 1.2rem;
   color: red;
-
 }
-.eventHeader{
+.eventHeader {
   display: flex;
   justify-content: space-between;
 }
