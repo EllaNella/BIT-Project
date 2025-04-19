@@ -70,7 +70,7 @@ const Events = () => {
     const fetchTextAnnouncements = async () => {
       try {
         const textQuery = query(
-          collection(db, "announcements"),
+          collection(db, "textAnnouncements"),
           orderBy("createdAt", "desc")
         );
         const querySnapshot = await getDocs(textQuery);
