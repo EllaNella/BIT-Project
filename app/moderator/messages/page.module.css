@@ -1,0 +1,102 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin-top: 8rem;
+}
+
+.messageList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.messageItem {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.messageItem:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.greenBlue {
+  background: #B3DAA9;
+}
+
+.blueGreen {
+  background: #9FCFD1;
+}
+
+.collapsed {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.collapsedInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topic {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.name {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.dateTime {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.expanded {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email {
+  color: #333;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.message {
+  color: #333;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.icon {
+  font-size: 1.2rem;
+  color: #007BFF;
+  transition: color 0.2s ease;
+}
+
+.icon:hover {
+  color: #0056b3;
+}

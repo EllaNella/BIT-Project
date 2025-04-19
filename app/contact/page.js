@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import styles from "./page.module.css";
+import { db } from "../../firebase"; 
+import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,18 +22,49 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const { fName, email, message } = formData;
-
+  
+    const { fName, lName, email, topic, message } = formData;
+  
     if (!fName || !email || !message) {
       alert("Please fill up the required fields (First Name, Email, and Message).");
       return;
     }
-
-    // Open modal upon successful submission
-    setIsModalOpen(true);
+  
+    try {
+      // Fetch all existing messages to determine the next custom ID
+      const messagesCollection = collection(db, "messages");
+      const messagesSnapshot = await getDocs(messagesCollection);
+      const nextMessageId = `Message${messagesSnapshot.size + 1}`; // Generate custom ID
+  
+      const newMessage = {
+        id: nextMessageId,
+        fName,
+        lName,
+        email,
+        topic,
+        message,
+        timestamp: new Date().toISOString(), // Add a timestamp
+      };
+  
+      // Add the message to Firestore with the custom ID
+      const messageRef = doc(db, "messages", nextMessageId);
+      await setDoc(messageRef, newMessage);
+  
+      // Clear the form and show the modal
+      setFormData({
+        fName: "",
+        lName: "",
+        email: "",
+        topic: "",
+        message: "",
+      });
+      setIsModalOpen(true); // Open modal upon successful submission
+    } catch (error) {
+      console.error("Error submitting message:", error);
+      alert("An error occurred while submitting your message. Please try again.");
+    }
   };
 
   const closeModal = () => setIsModalOpen(false);

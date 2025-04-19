@@ -5,7 +5,7 @@
     top: 0;
     bottom: 0;
     transition: right 0.35s ease; /* Animate sidebar sliding in and out */
-    z-index: 101;
+    z-index: 104;
     background-color: #578362b6; /* Same as navbar */
     padding: 20px;
     color: #000; 
@@ -29,6 +29,7 @@
   .sidebarItem {
     list-style-type: none;
     padding: 0;
+    margin-top: 2rem;
   }
   
   .sidebarItem li {
@@ -44,12 +45,12 @@
   .belowButton {
     display: flex;
     flex-direction: column;
-    list-style-type: none;
+    align-items: center; /* Center everything */
+    justify-content: flex-end;
     margin-top: auto;
     height: auto;
-    align-items: flex-end;
-    justify-content: flex-end;
   }
+  
   .belowButton li{
     font-size: 24px;
     
@@ -177,21 +178,22 @@
   
 
   /* Footer */
-.footer {
-    background-color: #A4BCA6; /* Aqua marine background */
-    color: #fff; /* Dark text for contrast */
-    padding: 30px 20px; /* Added padding for better spacing */
+  .footer {
+    background-color: #A4BCA6;
+    color: #fff;
+    padding: 15px 20px;
     text-align: center;
-    margin-top: auto; /* Push footer to the bottom */
-    width: 100%; /* Ensure it spans the full width */
-    font-size: 16px; /* Slightly larger font size */
-    border-top: 2px solid #A4BCA6; /* Add border for separation */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
+    font-size: 16px;
+    border-top: 2px solid #A4BCA6;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
+    width: 100%;
+    margin-top: auto;
+    align-self: baseline;
+}
   
   .footer:hover {
     background-color: #578362; /* Hover background color */
@@ -285,11 +287,13 @@
     transform: translateX(24px);
   }
   
-.loginItem {
-  transition: all 0.3s ease;
-  margin-left: 25%;
-  
-}
+  .loginItem {
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
 
 
 .loginItem:hover {
@@ -341,3 +345,77 @@
 }
 
 
+
+
+
+
+
+
+
+/* Keep existing styles and add these: */
+
+.loginItem {
+  position: relative;
+  cursor: pointer;
+}
+
+.loginLink {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hoverText {
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.showHoverText .hoverText {
+  opacity: 1;
+}
+
+.logoutPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.popupButtons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.confirmButton {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background: #5bc0de;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}

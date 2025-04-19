@@ -90,3 +90,40 @@ height: 100%;
     font-weight: bold;
     color: rgb(45, 147, 225);
   }
+  .error {
+    color: rgb(192, 29, 29);
+    background: rgba(255, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  
+  
+
+  
+  .logInBTN:hover {
+    background-color: #329aa1;
+    transform: scale(1.05);
+  }
+  
+  .logInBTN:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+  }
+  
+  .loader {
+    border: 3px solid #fff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

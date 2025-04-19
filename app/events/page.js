@@ -1,83 +1,185 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { RiDeleteBack2Fill } from "react-icons/ri";
+import { firebaseAuth, db, storage } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs, query, orderBy, doc, deleteDoc, getDoc } from "firebase/firestore";
+import { ref, deleteObject } from "firebase/storage";
 
 const Events = () => {
-  const announcements = [
-    {
-      id: 1,
-      title: "📢 Monthly Eco-Challenge",
-      subtitle: "January",
-      description: `Join our 'Cut Your Carbon' challenge and share your simple steps to reduce your carbon footprint—bike to work, go plastic-free, or plant a tree!\n\nHow to Join:\nPost your experience in the 'Eco-Challenges' forum.\n\nTop Contributor Prize:\nThe most creative post gets featured and wins a free sustainable living guide!\n\nLet's make an impact together! 💚`,
-    },
-    {
-      id: 2,
-      image: "/images/Announcementbody.jpg",
-    },
-    {
-      id: 3,
-      title: "Community Achievement",
-      subtitle: "Milestone Reached",
-      description: "We've collectively planted 1000 trees this quarter! Thank you for your participation.",
-    },
-    {
-      id: 4,
-      title: "Community Achievement",
-      subtitle: "Milestone Reached",
-      description: "We've collectively planted 1000 trees this quarter! Thank you for your participation.",
-    },
-    {
-      id: 5,
-      image: "/images/Event.jpg", // Example of image-only announcement
-    },
-    // Add more announcements as needed
-  ];
+  
+  const [currentUser, setCurrentUser] = useState({
+    username: "LoggedUser",
+    userImage: "/images/Userheader.jpg",
+    role: "Visitor",
+    isAdmin: false,
+  });
+  const [loadingUser, setLoadingUser] = useState(true);
 
-  const events = [
-    {
-      id: 1,
-      image: "/images/About.jpg",
-      title: "Beach Cleanup by EcoGo",
-      date: "Thu, 30 Jan 2025 12:00-16:00 GMT+8",
-      location: "Crawfordsburn Beach",
-      price: "Free",
-      contact: "EcoGo@google.com",
-    },
-    {
-      id: 2,
-      image: "/images/About.jpg",
-      title: "Beach Cleanup by EcoGo",
-      date: "Thu, 30 Jan 2025 12:00-16:00 GMT+8",
-      location: "Crawfordsburn Beach",
-      price: "Free",
-      contact: "EcoGo@google.com",
-    },
-    {
-      id: 3,
-      image: "/images/About.jpg",
-      title: "Beach Cleanup by EcoGo",
-      date: "Thu, 30 Jan 2025 12:00-16:00 GMT+8",
-      location: "Crawfordsburn Beach",
-      price: "Free",
-      contact: "EcoGo@google.com",
-    },
-  ];
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
+      if (user) {
+        try {
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            console.log("Fetched user data:", userData); // Debug log
+            setCurrentUser({
+              username: userData.name || "Unknown",
+              userImage: userData.profileImage || "/images/Userheader.jpg",
+              role: userData.role || "User",
+              isAdmin: userData.isAdmin || false,
+            });
+          } else {
+            console.log("No user document found for UID:", user.uid);
+            setCurrentUser({
+              username: "Unknown",
+              userImage: "/images/Userheader.jpg",
+              role: "User",
+              isAdmin: false,
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setCurrentUser({
+            username: "Unknown",
+            userImage: "/images/Userheader.jpg",
+            role: "User",
+            isAdmin: false,
+          });
+        }
+      } else {
+        setCurrentUser({
+          username: "Guest",
+          userImage: "/images/Userheader.jpg",
+          role: "Visitor",
+          isAdmin: false,
+        });
+      }
+      setLoadingUser(false); // Done fetching user data
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const [announcements, setAnnouncements] = useState([]);
+  const [events, setEvents] = useState([]);
+  
+  useEffect(() => {
+    // Fetch text announcements
+    const fetchTextAnnouncements = async () => {
+      try {
+        const textQuery = query(
+          collection(db, "announcements"),
+          orderBy("createdAt", "desc")
+        );
+        const querySnapshot = await getDocs(textQuery);
+        return querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          type: "text",
+          ...doc.data(),
+        }));
+      } catch (error) {
+        console.error("Error fetching text announcements:", error);
+        return [];
+      }
+    };
+
+    // Fetch image announcements
+    const fetchImageAnnouncements = async () => {
+      try {
+        const imageQuery = query(
+          collection(db, "imageAnnouncements"),
+          orderBy("createdAt", "desc")
+        );
+        const querySnapshot = await getDocs(imageQuery);
+        return querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          type: "image",
+          ...doc.data(),
+        }));
+      } catch (error) {
+        console.error("Error fetching image announcements:", error);
+        return [];
+      }
+    };
+
+    // Fetch events
+    const fetchEvents = async () => {
+      try {
+        const eventsQuery = query(
+          collection(db, "events"),
+          orderBy("createdAt", "asc")
+        );
+        const querySnapshot = await getDocs(eventsQuery);
+        return querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        return [];
+      }
+    };
+
+    // Combine and sort announcements, fetch events
+    const fetchData = async () => {
+      const textAnnouncements = await fetchTextAnnouncements();
+      const imageAnnouncements = await fetchImageAnnouncements();
+      const allAnnouncements = [...textAnnouncements, ...imageAnnouncements].sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      setAnnouncements(allAnnouncements);
+
+      const fetchedEvents = await fetchEvents();
+      setEvents(fetchedEvents);
+    };
+
+    fetchData();
+  }, []);
+
+
+
+
+  const handleDelete = async (id, type) => {
+    try {
+      if (type === "event") {
+        // Delete event banner from storage
+        const eventRef = doc(db, "events", id);
+        const eventData = events.find((event) => event.id === id);
+        if (eventData?.bannerUrl) {
+          const bannerRef = ref(storage, `events/${id}`);
+          await deleteObject(bannerRef);
+        }
+        // Delete event from Firestore
+        await deleteDoc(eventRef);
+        setEvents(events.filter((event) => event.id !== id));
+      } else {
+        // Delete announcement
+        const collectionName = type === "text" ? "announcements" : "imageAnnouncements";
+        const announcementRef = doc(db, collectionName, id);
+        const announcementData = announcements.find((announcement) => announcement.id === id);
+        if (announcementData?.image) {
+          const imageRef = ref(storage, `${collectionName}/${id}`);
+          await deleteObject(imageRef);
+        }
+        await deleteDoc(announcementRef);
+        setAnnouncements(announcements.filter((announcement) => announcement.id !== id));
+      }
+      console.log(`${type === "event" ? "Event" : "Announcement"} with id ${id} deleted successfully`);
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
 
   const renderDescription = (text) => {
-    if (!text) return null; // Add this check for null/undefined description
-    // Split text by bold markers and map through parts
+    if (!text) return null;
     return text.split(/(\*\*.*?\*\*)/).map((part, index) => {
       if (part.startsWith("**") && part.endsWith("**")) {
-        // Remove ** and render as bold
         return <strong key={index}>{part.slice(2, -2)}</strong>;
       }
       return part;
     });
-  };
-
-  const handleDelete = (id) => {
-    // Implement delete functionality here
-    console.log(`Delete announcement with id: ${id}`);
   };
 
   return (
@@ -91,7 +193,7 @@ const Events = () => {
               .map((announcement) => (
                 <div key={announcement.id} className={styles.announcementBox}>
                   <div className={styles.announcementContent}>
-                    {(announcement.description || announcement.subtitle) && (
+                    {announcement.type === "text" && (
                       <div className={styles.announcementHeader}>
                         {announcement.title && <h2>{announcement.title}</h2>}
                         {announcement.subtitle && <h3>{announcement.subtitle}</h3>}
@@ -99,12 +201,14 @@ const Events = () => {
                     )}
                     {announcement.image && (
                       <div className={styles.imageContainer}>
-                        <button
-                          className={styles.deleteButton}
-                          
-                        >
-                          <RiDeleteBack2Fill />
-                        </button>
+                        {currentUser.role === "Moderator" && (
+                          <button
+                            className={styles.deleteButton}
+                            onClick={() => handleDelete(announcement.id, announcement.type)}
+                          >
+                            <RiDeleteBack2Fill />
+                          </button>
+                        )}
                         <img
                           src={announcement.image}
                           alt=""
@@ -112,17 +216,20 @@ const Events = () => {
                         />
                       </div>
                     )}
-                    {announcement.description && (
+                    {announcement.content && (
                       <div className={styles.announcementDescriptionContainer}>
-                        <button
-                          className={styles.deleteButton}
-                          
-                        >
-                          <RiDeleteBack2Fill />
-                        </button>
-                        <p className={styles.announcementDescription}>
-                          {renderDescription(announcement.description)}
-                        </p>
+                        {currentUser.role == "Moderator" && (
+                          <button
+                            className={styles.deleteButton}
+                            onClick={() => handleDelete(announcement.id, announcement.type)}
+                          >
+                            <RiDeleteBack2Fill />
+                          </button>
+                        )}
+                        <p
+                          className={styles.announcementDescription}
+                          dangerouslySetInnerHTML={{ __html: announcement.content }}
+                        ></p>
                       </div>
                     )}
                   </div>
@@ -135,7 +242,7 @@ const Events = () => {
               .map((announcement) => (
                 <div key={announcement.id} className={styles.announcementBox}>
                   <div className={styles.announcementContent}>
-                    {(announcement.description || announcement.subtitle) && (
+                    {announcement.type === "text" && (
                       <div className={styles.announcementHeader}>
                         {announcement.title && <h2>{announcement.title}</h2>}
                         {announcement.subtitle && <h3>{announcement.subtitle}</h3>}
@@ -143,11 +250,14 @@ const Events = () => {
                     )}
                     {announcement.image && (
                       <div className={styles.imageContainer}>
-                        <button
-                          className={styles.deleteButton}
-                        >
-                          <RiDeleteBack2Fill />
-                        </button>
+                        {currentUser.role === "Moderator" && (
+                          <button
+                            className={styles.deleteButton}
+                            onClick={() => handleDelete(announcement.id, announcement.type)}
+                          >
+                            <RiDeleteBack2Fill />
+                          </button>
+                        )}
                         <img
                           src={announcement.image}
                           alt=""
@@ -155,16 +265,20 @@ const Events = () => {
                         />
                       </div>
                     )}
-                    {announcement.description && (
+                    {announcement.content && (
                       <div className={styles.announcementDescriptionContainer}>
-                        <button
-                          className={styles.deleteButton}
-                        >
-                          <RiDeleteBack2Fill />
-                        </button>
-                        <p className={styles.announcementDescription}>
-                          {renderDescription(announcement.description)}
-                        </p>
+                        {currentUser.role === "Moderator" && (
+                          <button
+                            className={styles.deleteButton}
+                            onClick={() => handleDelete(announcement.id, announcement.type)}
+                          >
+                            <RiDeleteBack2Fill />
+                          </button>
+                        )}
+                        <p
+                          className={styles.announcementDescription}
+                          dangerouslySetInnerHTML={{ __html: announcement.content }}
+                        ></p>
                       </div>
                     )}
                   </div>
@@ -180,25 +294,28 @@ const Events = () => {
           {events.map((event) => (
             <div key={event.id} className={styles.eventBox}>
               <img
-                src={event.image}
-                alt={event.title}
+                src={event.bannerUrl}
+                alt="Event Banner"
                 className={styles.eventImage}
               />
               <div className={styles.eventContent}>
                 <div className={styles.eventHeader}>
-                  <h2>{event.title}</h2>
-                  <button
-                    className={styles.deleteButton}
-                  >
-                    <RiDeleteBack2Fill />
-                  </button>
+                  {currentUser.role === "Moderator" && (
+                    <button
+                      className={styles.deleteButton}
+                      onClick={() => handleDelete(event.id, "event")}
+                    >
+                      <RiDeleteBack2Fill />
+                    </button>
+                  )}
                 </div>
-                <p className={styles.eventDate}>{event.date}</p>
-                <p>{event.location}</p>
-                <p>{event.price}</p>
-                <p>
-                  Contact <span className={styles.eventEmail}>{event.contact}</span> to sign up today!
-                </p>
+                
+                {event.content && (
+                  <div
+                    className={styles.eventDescription}
+                    dangerouslySetInnerHTML={{ __html: event.content }}
+                  />
+                )}
               </div>
             </div>
           ))}
