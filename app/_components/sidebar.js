@@ -13,6 +13,7 @@ import { FaRegEnvelope } from "react-icons/fa6";
 
 
 const Sidebar = ({ isOpen, onClick }) => {
+  //router for navigation from one page to another
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [userRole, setUserRole] = useState(null);
@@ -71,6 +72,7 @@ const Sidebar = ({ isOpen, onClick }) => {
       <div className={styles.belowButton}>
         <ul>
 
+      {/* check if its moderator  to show the buttons*/}
         {userRole === "Moderator" && (
           <>
             <li><Link href="/moderator" className={styles.mod}>Moderator</Link></li>
@@ -91,9 +93,9 @@ const Sidebar = ({ isOpen, onClick }) => {
           )}
           <li 
             className={styles.loginItem} 
-            onMouseEnter={(e) => e.currentTarget.classList.add(styles.showHoverText)}
+            onMouseEnter={(e) => e.currentTarget.classList.add(styles.showHoverText)} //to show the effect of text on hover
             onMouseLeave={(e) => e.currentTarget.classList.remove(styles.showHoverText)}
-            onClick={() => user ? handleLogout() : router.push("/login")}
+            onClick={() => user ? handleLogout() : router.push("/login")} // Handle login/logout based on wheather the user is signed in or not
           >
             <Link href="#" className={styles.loginLink}>
               <img 

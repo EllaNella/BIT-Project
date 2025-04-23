@@ -16,14 +16,17 @@ const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
     }
   };
 
+
+  // Effect to handle scroll event
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
+    // Fragment to show the navbar on the top of the page if its not hide it
     <div
-      className={`${styles.navbar} ${isDarkMode ? styles.dark : ""} ${
+      className={`${styles.navbar} ${
         isVisible ? "" : styles.hidden
       }`}
     >

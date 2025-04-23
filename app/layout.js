@@ -6,6 +6,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./_components/footer";
 
+
+
+// Importing fonts from Google Fonts using next/font
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,22 +21,8 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children }) {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useEffect(() => {
-    // Check localStorage for user's theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      setIsDarkMode(savedTheme === "dark");
-    } else {
-      // Set default based on system preference
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
-      setIsDarkMode(prefersDark);
-    }
-  }, []);
-
+  //toggling sidebar on and off
   const toggleSidebar = () => {
     setIsSidebarOpened((prev) => !prev);
   };
@@ -47,13 +36,15 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+
+      {/* Call for the head tag once to show title and stuff on every page*/}
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Combat Climate Change</title>
+        <title>EcoGo</title>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Navbar onClick={toggleSidebar} onThemeToggle={toggleTheme} />
+        <Navbar onClick={toggleSidebar}  />
         {/* Sidebar */}
         {isSidebarOpened && <Sidebar onClick={toggleSidebar} />}
         <main>{children}</main>

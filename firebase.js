@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage"; // Import Firebase Storage
-import cors from "cors"; // Import cors
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,24 +17,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const firebaseAuth = getAuth(app);
-const db = getFirestore(app);
+const firebaseAuth = getAuth(app); // Initialize Firebase Authentication
+const db = getFirestore(app); // Initialize Firestore
 const storage = getStorage(app); // Initialize Firebase Storage
 
-// Configure CORS for localhost:3000
-const corsOptions = {
-  origin: "http://localhost:3000", // Allow requests from localhost:3000
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-  credentials: true // Allow credentials
-};
 
-const corsMiddleware = cors(corsOptions);
-
-// Example function to use CORS
-function exampleFunction(req, res) {
-  corsMiddleware(req, res, () => {
-    res.send("CORS is configured for localhost:3000!");
-  });
-}
-
-export { db, firebaseAuth, storage, exampleFunction };
+// Export the initialized Firebase app, auth, and Firestore instances
+export { db, firebaseAuth, storage }; 

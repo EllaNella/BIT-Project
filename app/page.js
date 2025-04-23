@@ -10,6 +10,8 @@ import { firebaseAuth, db } from "../firebase"; // Adjust path if needed
 const Dashboard = () => {
   const [userName, setUserName] = useState(null); // State to store user's name
 
+
+  // Effect to listen for ANY user is logged in or not if yes then store the user name
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
       if (user) {
@@ -24,17 +26,23 @@ const Dashboard = () => {
       }
     });
 
-    return () => unsubscribe(); // Cleanup listener on unmount
+    return () => unsubscribe(); // run the function and then unload it 
   }, []);
 
+  // Taglines, pages, and images for the circles an array to store tag lines
   const taglines = [
     "Take action today",
     "Share your thoughts",
     "How it all started",
   ];
 
+
+  // Pages for the circles an array to store links
   const pages = ["/events", "/forum", "/about"];
 
+
+
+  // Images for the circles an array to store images
   const images = [
     "/images/Takeaction.png",
     "/images/Event.jpg",
@@ -58,6 +66,7 @@ const Dashboard = () => {
       {/* Circle Section */}
       <div className={styles.row}>
         {taglines.map((tagline, index) => (
+          // Map through taglines and create Circle components index is for unique ids of the divs
           <Circle
             key={index}
             tagline={tagline}

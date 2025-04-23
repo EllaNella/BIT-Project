@@ -434,7 +434,7 @@ export default function Forum() {
               >
                 {/* Post Header */}
                 <div className={styles.postHeader}>
-                  <img src={post.userImage} alt={post.username} className={styles.userImage} />
+                  <img src="/images/person.png" alt={post.username} className={styles.userImage} />
                   <div className={styles.userInfo1}>
                     <h3>{post.username}</h3>
                     <p>{formatTimeAgo(post.postDate)}</p>
@@ -442,7 +442,12 @@ export default function Forum() {
                 </div>
 
                 {/* Post Content */}
-                <div className={styles.postContent}>{post.content}</div>
+                <div
+  className={styles.postContent}
+  dangerouslySetInnerHTML={{
+    __html: post.content.replace(/\n/g, "<br>"),
+  }}
+></div>
 
                 {/* Post Actions */}
                 <div className={styles.postActions}>
@@ -511,7 +516,12 @@ export default function Forum() {
                             <h4>{comment.username}</h4>
                           </div>
                           <p className={styles.date}>{formatTimeAgo(comment.commentDate)}</p>
-                          <p>{comment.content}</p>
+                          <div
+  
+  dangerouslySetInnerHTML={{
+    __html: post.content.replace(/\n/g, "<br>"),
+  }}
+></div>
                           <div className={styles.commentActions}>
                             <button onClick={() => handleLikeComment(post.id, commentIndex)}>
                               {comment.likedBy?.includes(currentUser.username) ? (

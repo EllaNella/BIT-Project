@@ -5,7 +5,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styles from "./page.module.css";
 import React from "react";
 import { db } from "@/firebase";
-import { collection, getDocs } from "firebase/firestore"; // Import Firestore functions
+import { collection, getDocs, query, orderBy } from "firebase/firestore"; // Import Firestore functions
 
 const MessageList = () => {
   const [messages, setMessages] = useState([]); // State to store messages
@@ -15,12 +15,16 @@ const MessageList = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "messages")); // Fetch messages from the "messages" collection
+        const messagesQuery = query(
+          collection(db, "messages"),
+          orderBy("timestamp", "desc") // Sort messages by timestamp in descending order
+        );
+        const querySnapshot = await getDocs(messagesQuery);
         const fetchedMessages = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setMessages(fetchedMessages); // Update state with fetched messages
+        setMessages(fetchedMessages); // Update state with sorted messages
       } catch (error) {
         console.error("Error fetching messages:", error);
       }
@@ -28,7 +32,6 @@ const MessageList = () => {
 
     fetchMessages();
   }, []);
-
   const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp); // Convert Firestore timestamp to Date object
     return date.toLocaleString("en-US", {

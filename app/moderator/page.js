@@ -86,8 +86,8 @@ export default function Moderator() {
   // Handle post announcement
   const handlePostAnnouncement = async () => {
     // Validation based on tab
-    if (activeTab === 'text' && (!announcementTitle || !announcementSubTitle || !announcementContent)) {
-      setAnnouncementMessage("Please fill in the title, subtitle, and content for a text announcement.");
+    if (activeTab === 'text' && (!announcementTitle  || !announcementContent)) {
+      setAnnouncementMessage("Please fill in the title, and content for a text announcement.");
       return;
     }
     if (activeTab === 'image' && !announcementImage) {
@@ -239,7 +239,7 @@ export default function Moderator() {
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="announcement-subtitle">Sub Title:</label>
+              <label htmlFor="announcement-subtitle">Subtitle:</label>
               <input
                 type="text"
                 id="announcement-subtitle"
