@@ -156,7 +156,7 @@ const Events = () => {
         setEvents(events.filter((event) => event.id !== id));
       } else {
         // Delete announcement
-        const collectionName = type === "text" ? "announcements" : "imageAnnouncements";
+        const collectionName = type === "text" ? "textAnnouncements" : "imageAnnouncements";
         const announcementRef = doc(db, collectionName, id);
         const announcementData = announcements.find((announcement) => announcement.id === id);
         if (announcementData?.image) {

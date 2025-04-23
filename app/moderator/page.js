@@ -104,7 +104,7 @@ export default function Moderator() {
 
       // Handle image upload for image announcements
       if (activeTab === 'image') {
-        const imageRef = ref(storage, `announcements/${announcementId}`);
+        const imageRef = ref(storage, `imageAnnouncements/${announcementId}`);
         await uploadBytes(imageRef, announcementImage);
         imageUrl = await getDownloadURL(imageRef);
       }
