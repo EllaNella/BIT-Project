@@ -21,15 +21,15 @@ const Dashboard = () => {
           setUserName(userDoc.data().name);
         }
       } else {
-        // User is not logged in
+        // User is not logged in so set to NULL
         setUserName(null);
       }
     });
 
-    return () => unsubscribe(); // run the function and then unload it 
+    return () => unsubscribe(); // Stopping the function loop so it doesn't keep repeating 
   }, []);
 
-  // Taglines, pages, and images for the circles an array to store tag lines
+  // an array to store tag lines, for the circles shown in dashboard,
   const taglines = [
     "Take action today",
     "Share your thoughts",
@@ -37,12 +37,11 @@ const Dashboard = () => {
   ];
 
 
-  // Pages for the circles an array to store links
+  //Array to store links for circles 
   const pages = ["/events", "/forum", "/about"];
 
 
-
-  // Images for the circles an array to store images
+  //  an array to store images for circles 
   const images = [
     "/images/Takeaction.png",
     "/images/Event.jpg",
@@ -51,7 +50,7 @@ const Dashboard = () => {
 
   return (
     <div className={styles.main}>
-      {/* Welcome Section */}
+      {/* Top Header Welcome Section */}
       <div className={styles.welcome}>
         <h3>It Starts with You{userName ? `, ${userName}` : ""} </h3>
         <p>
@@ -63,10 +62,10 @@ const Dashboard = () => {
         </a>
       </div>
 
-      {/* Circle Section */}
+      {/* Circles Section */}
       <div className={styles.row}>
         {taglines.map((tagline, index) => (
-          // Map through taglines and create Circle components index is for unique ids of the divs
+          // Map through all the arrays above and pull them for the Circle index with unqiue IDs 
           <Circle
             key={index}
             tagline={tagline}
