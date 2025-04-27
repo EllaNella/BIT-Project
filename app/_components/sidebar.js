@@ -73,7 +73,7 @@ const Sidebar = ({ isOpen, onClick }) => {
         <ul>
 
       {/* check if its moderator  to show the buttons*/}
-        {userRole === "Moderator" && (
+        {(userRole === "Moderator" || userRole === "Founder")  && (
           <>
             <li><Link href="/moderator" className={styles.mod}>Moderator</Link></li>
             <li 

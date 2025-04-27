@@ -473,7 +473,7 @@ export default function Forum() {
                   >
                     <BiCommentDetail size={25} />
                   </button>
-                  {currentUser.role === "Moderator" && (
+                  {(currentUser.role === "Moderator" || currentUser.role === "Founder") && (
                     <button onClick={() => handleDeletePost(post.id)}>
                       <RiDeleteBack2Fill size={23} color="red" />
                     </button>
@@ -503,7 +503,7 @@ export default function Forum() {
                     {/* Existing Comments */}
                     {post.comments?.map((comment, commentIndex) => (
                       <div key={commentIndex} className={styles.comment}>
-                        {currentUser.role === "Moderator" && (
+                        {(currentUser.role === "Moderator" || currentUser.role === "Founder") && (
                           <button
                             className={styles.deCmt}
                             onClick={() => handleDeleteComment(post.id, commentIndex)}
@@ -519,7 +519,7 @@ export default function Forum() {
                           <div
   
   dangerouslySetInnerHTML={{
-    __html: post.content.replace(/\n/g, "<br>"),
+    __html: comment.content.replace(/\n/g, "<br>"),
   }}
 ></div>
                           <div className={styles.commentActions}>

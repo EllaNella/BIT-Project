@@ -286,6 +286,7 @@
    border: 0px;
    margin-left: auto;
    margin-top: 10px;
+   cursor: pointer;
   }
 
   .userIcon {

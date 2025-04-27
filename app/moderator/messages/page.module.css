@@ -83,6 +83,7 @@
   color: #333;
   font-size: 0.95rem;
   margin: 0;
+  display: inline;
 }
 
 .dropdown {
@@ -99,4 +100,8 @@
 
 .icon:hover {
   color: #0056b3;
+}
+.messageBox{
+  gap: 5px;
+  display: flex;
 }

@@ -69,9 +69,17 @@ const MessageList = () => {
                 <p className={styles.email}>
                   <strong>Email:</strong> {msg.email}
                 </p>
-                <p className={styles.message}>
-                  <strong>Message:</strong> {msg.message}
-                </p>
+                <div className={styles.messageBox}>
+                <strong>Message:</strong>
+
+                <div
+  className={styles.message}
+  dangerouslySetInnerHTML={{
+    __html: msg.message.replace(/\n/g, "<br>"),
+  }}
+></div>
+</div>
+
                 <span className={styles.dropdown}>
                   <FaChevronUp className={styles.icon} />
                 </span>

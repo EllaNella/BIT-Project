@@ -201,7 +201,7 @@ const Events = () => {
                     )}
                     {announcement.image && (
                       <div className={styles.imageContainer}>
-                        {currentUser.role === "Moderator" && (
+                        {(currentUser.role === "Moderator" || currentUser.role === "Founder") && (
                           <button
                             className={styles.deleteButton}
                             onClick={() => handleDelete(announcement.id, announcement.type)}
@@ -218,7 +218,7 @@ const Events = () => {
                     )}
                     {announcement.content && (
                       <div className={styles.announcementDescriptionContainer}>
-                        {currentUser.role == "Moderator" && (
+                        {(currentUser.role == "Moderator" || currentUser.role === "Founder") && (
                           <button
                             className={styles.deleteButton}
                             onClick={() => handleDelete(announcement.id, announcement.type)}
@@ -250,7 +250,7 @@ const Events = () => {
                     )}
                     {announcement.image && (
                       <div className={styles.imageContainer}>
-                        {currentUser.role === "Moderator" && (
+                        {(currentUser.role == "Moderator" || currentUser.role === "Founder") && (
                           <button
                             className={styles.deleteButton}
                             onClick={() => handleDelete(announcement.id, announcement.type)}
@@ -267,7 +267,7 @@ const Events = () => {
                     )}
                     {announcement.content && (
                       <div className={styles.announcementDescriptionContainer}>
-                        {currentUser.role === "Moderator" && (
+                        {(currentUser.role == "Moderator" || currentUser.role === "Founder")&& (
                           <button
                             className={styles.deleteButton}
                             onClick={() => handleDelete(announcement.id, announcement.type)}
@@ -300,7 +300,7 @@ const Events = () => {
               />
               <div className={styles.eventContent}>
                 <div className={styles.eventHeader}>
-                  {currentUser.role === "Moderator" && (
+                  {(currentUser.role == "Moderator" || currentUser.role === "Founder") && (
                     <button
                       className={styles.deleteButton}
                       onClick={() => handleDelete(event.id, "event")}
