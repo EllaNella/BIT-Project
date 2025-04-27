@@ -73,7 +73,7 @@ export default function Forum() {
             setCurrentUser({
               username: userData.name || user.displayName || "Unknown",
               userImage: userData.profileImage || user.photoURL || "/images/Userheader.jpg",
-              role: userData.role || "User",
+              role: userData.role || "Member",
               isAdmin: userData.isAdmin || false,
             });
           } else {

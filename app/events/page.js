@@ -16,7 +16,7 @@ const Events = () => {
     isAdmin: false,
   });
   const [loadingUser, setLoadingUser] = useState(true);
-
+// Load everything automaticallly at the start of the page
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
       if (user) {
@@ -138,6 +138,7 @@ const Events = () => {
     fetchData();
   }, []);
 
+ 
 
 
 
@@ -153,6 +154,7 @@ const Events = () => {
         }
         // Delete event from Firestore
         await deleteDoc(eventRef);
+        // this is deleting from front end state
         setEvents(events.filter((event) => event.id !== id));
       } else {
         // Delete announcement
