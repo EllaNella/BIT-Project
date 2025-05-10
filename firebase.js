@@ -22,5 +22,5 @@ const db = getFirestore(app); // Initialize Firestore
 const storage = getStorage(app); // Initialize Firebase Storage
 
 
-// Export the initialized Firebase app, auth, and Firestore instances
+// Export the initialized Firebase app, auth, and Firestore instances to use it in other poages
 export { db, firebaseAuth, storage }; 

@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 
 function RegisterComplete() {
   const router = useRouter();
-  const continu = (event) => {
-    event.preventDefault();
+  const continu = () => {
     router.push("/"); 
   };
   return (

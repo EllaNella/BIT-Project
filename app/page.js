@@ -26,7 +26,7 @@ const Dashboard = () => {
       }
     });
 
-    return () => unsubscribe(); // Stopping the function loop so it doesn't keep repeating 
+    return () => unsubscribe(); // Stopping the Hook loop so it doesn't keep repeating 
   }, []);
 
   // an array to store tag lines, for the circles shown in dashboard,
@@ -58,7 +58,7 @@ const Dashboard = () => {
           climate change and create a sustainable future for everyone.
         </p>
         <a href="/login" className={styles["cta-btn"]}>
-          Get Started
+          Get Started 
         </a>
       </div>
 
@@ -66,6 +66,9 @@ const Dashboard = () => {
       <div className={styles.row}>
         {taglines.map((tagline, index) => (
           // Map through all the arrays above and pull them for the Circle index with unqiue IDs 
+
+          //we are using Circle component that we created in circle.js file
+          // and passing the tagline, page, and image as props to it
           <Circle
             key={index}
             tagline={tagline}

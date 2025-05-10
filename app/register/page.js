@@ -10,7 +10,7 @@ import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 const Register = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {

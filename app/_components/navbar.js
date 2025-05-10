@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./components.module.css";
 import IconButton from "./icon.button";
 
-const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
+const Navbar = ({ onClick}) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleScroll = () => {
@@ -24,7 +24,10 @@ const Navbar = ({ onClick, onThemeToggle, isDarkMode }) => {
   }, []);
 
   return (
-    // Fragment to show the navbar on the top of the page if its not hide it
+    // function to show the navbar on the top of the page if its not hide it
+
+    // and also to show the navbar when the user scrolls back to the top of the page
+    //there are two styles for the navbar one is hidden and the other is shown
     <div
       className={`${styles.navbar} ${
         isVisible ? "" : styles.hidden
